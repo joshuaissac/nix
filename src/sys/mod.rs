@@ -187,7 +187,7 @@ feature! {
     pub mod inotify;
 }
 
-#[cfg(linux_android)]
+#[cfg(any(linux_android, target_os = "freebsd"))]
 feature! {
     #![feature = "time"]
     pub mod timerfd;
