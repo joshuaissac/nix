@@ -2314,13 +2314,15 @@ mod tests {
             let _sock_addr = unsafe { SockaddrStorage::from_raw(sa, len) };
 
             assert!(_sock_addr.is_some());
+
             let sock_addr = _sock_addr.unwrap();
+
             assert_eq!(sock_addr.family().unwrap(), AddressFamily::Link);
+
             assert_eq!(
                 sock_addr.as_link_addr().unwrap().addr(),
                 Some([24u8, 101, 144, 221, 76, 176])
             );
-
         }
 
         #[test]
